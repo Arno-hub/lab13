@@ -59,7 +59,6 @@ On appui sur la barre espace du terminal picocom pour arrêter le compte à rebo
 On voit alors l'invite : QUERE-uboot
 
 (Bootloader == Bios sur les gros PC) 
-SD amovible et carte EMMC à de la mémoire soudé.
 Boot Switch permet de changer l'endroit où l'on boot 
 
 Question 9 
@@ -88,6 +87,7 @@ setenv ethaddr 12: 34: 56: ab: cd: ef
 Question 12
 
 On enregistre ensuite les paramètres sur le stockage EMMC via la commande --> saveenv
+(la carte SD est amovible et la carte EMMC à de la mémoire soudé).
 
 Question 13
 
