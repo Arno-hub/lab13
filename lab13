@@ -60,8 +60,7 @@ On voit alors l'invite : Quere-Uboot
 
 (Bootloader == Bios sur les gros PC) 
 SD amovible et carte EMMC à de la mémoire soudé.
-Boot Switch permet de changer l'endroit où l'on boot
-CO ethernet est une connexion rapide, si on ne l'a pas on n'est obligé d'enlever la carte SD et la reco sur l'ordi si on veut ajouter des fichiers. 
+Boot Switch permet de changer l'endroit où l'on boot 
 
 Question 9 
 
@@ -97,6 +96,7 @@ On branche l'adaptateur Ethernet sur le PC et un câble reliant la carte au PC
 Question 14
 
 On vérifie que l'interface ethernet soit bien connectée sur la machine virtuelle et non pas sur windows.
+La connexion éthernet permet d'avoir une connexion rapide, si on ne l'a pas on n'est obligé d'enlever la carte SD et la reco sur l'ordi si on veut ajouter des fichiers.
 
 Question 15/16
 
