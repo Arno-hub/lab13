@@ -56,7 +56,7 @@ Question 8
 
 On réinitialise la carte en maintenant appuyé le bouton reset de la carte. 
 On appui sur la barre espace du terminal picocom pour arrêter le compte à rebours du démarrage.
-On voit alors l'invite : Quere-Uboot
+On voit alors l'invite : QUERE-uboot
 
 (Bootloader == Bios sur les gros PC) 
 SD amovible et carte EMMC à de la mémoire soudé.
