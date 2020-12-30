@@ -1,0 +1,126 @@
+Question 1
+
+On clone la documentation se trouvant dans le git en appliquant la commande : 
+
+-->git clone https://github.com/CircuitCo/BeagleBone-Black/
+-->git clone https://www.ti.com/product/am3359 
+
+Question 2
+
+On récupère la carte micro-SD amorçable préparé lors de la partie 12 et on l'insère dans la carte.
+
+Question 3
+
+On réalise les connexions USB vers série.
+La liaison série permet depuis l'hyperterminal de lancer des commandes vers la carte
+
+Question 4
+
+Une fois les connexions réalisées, on voit un nouveau port série apparaître : /dev/ttyUSB0
+
+Question 5 
+
+Pour pouvoir communiquer avec la carte via le port série, on installe le programme de communication série picocom. 
+
+Question 6
+
+On ajoute notre utilisateur au groupe dialout via la commande : 
+
+sudo adduser arno dialout 
+
+Question 7
+
+On lance picocom via la commande : -b 115200 /dev / ttyUSB0
+
+Sur la ligne série, on reçoit :
+
+U-Boot 2018.05 (Dec 03 2020 - 12:01:26 +0100)
+
+CPU  : AM335X-GP rev 2.1
+I2C:   ready
+DRAM:  512 MiB
+No match for driver 'omap_hsmmc'
+No match for driver 'omap_hsmmc'
+Some drivers were not found
+MMC:   OMAP SD/MMC: 0, OMAP SD/MMC: 1
+Loading Environment from FAT... *** Warning - bad CRC, using default environment
+
+Failed (-5)
+Loading Environment from MMC... OK
+Net:   cpsw, usb_ether
+Press SPACE to abort autoboot in 2 seconds
+
+Il s'agit bien du U-Boot que nous avons compilé qui démarre
+
+Question 8
+
+On réinitialise la carte en maintenant appuyé le bouton reset de la carte. 
+On appui sur la barre espace du terminal picocom pour arrêter le compte à rebours du démarrage.
+On voit alors l'invite : Quere-Uboot
+
+(Bootloader == Bios sur les gros PC) 
+SD amovible et carte EMMC à de la mémoire soudé.
+Boot Switch permet de changer l'endroit où l'on boot
+CO ethernet est une connexion rapide, si on ne l'a pas on n'est obligé d'enlever la carte SD et la reco sur l'ordi si on veut ajouter des fichiers. 
+
+Question 9 
+
+On peut maintenant utiliser U-Boot. 
+On tape la commande -->  help saveenv, et on constate que la commande saveenv existe  bien 
+
+Question 10 
+
+On efface les paramètres appliqués lors de précédents travaux pratiques avec la commande : 
+env default -f -a 
+saveenv 
+
+Question 11
+ 
+On configure l'interface réseau avec U-Boot et plus spécifiquement les deux variables suivantes : 
+ipaddr: adresse IP de la carte 
+serverip: adresse IP de l'hôte PC
+
+En appliquant les commandes suivantes : 
+setenv ipaddr 192.168.0.100
+setenv serverip 192.168.0.1
+On définit aussi l'adresse MAC dans U-boot avec la commande : 
+setenv ethaddr 12: 34: 56: ab: cd: ef
+
+Question 12
+
+On enregistre ensuite les paramètres sur le stockage EMMC via la commande --> saveenv
+
+Question 13
+
+On branche l'adaptateur Ethernet sur le PC et un câble reliant la carte au PC
+
+Question 14
+
+On vérifie que l'interface ethernet soit bien connectée sur la machine virtuelle et non pas sur windows.
+
+Question 15/16
+
+On trouve le nom de l'interface en tapant la commande --> ifconfig -a : 
+On relève le nom suivant : ens33, pour le nom de l'interface réseau. 
+On configure ensuite l'adresse IP de l'hôte à partir de l'interface graphique de NetWork Manager.
+
+Adresse IPV4 192.168.0.1
+Net mask : 255.255.255.0
+
+Question 17  
+
+On redémarre ensuite l'interface éthernet : 
+sudo /etc/init.d/networking restart 
+
+Question 18
+
+On teste la connexion réseau : 
+On installe un serveur TFTP sur le pc via la commande : sudo apt installer tftpd-hpa
+Puis on reboot la carte afin de tenir compte des nouvelles valeurs de configuration.
+
+On teste la connexion TFTP en plaçant un fichier texte dans /var / lib / tftpboot et à partir de U-Boot on charge ce fichier dans l'adresse 0x81000000 via la commande tftp 0x81000000 Coucou 
+
+Question 19 
+
+On visualise le contenu de la mémoire de la carte via la commande --> md address 
+On constate que le fichier Coucou est contenu dans la mémoire de la carte à l'emplacement 0x81000000
