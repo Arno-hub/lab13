@@ -36,17 +36,6 @@ Sur la ligne série, on reçoit :
 
 U-Boot 2018.05 (Dec 03 2020 - 12:01:26 +0100)
 
-CPU  : AM335X-GP rev 2.1
-I2C:   ready
-DRAM:  512 MiB
-No match for driver 'omap_hsmmc'
-No match for driver 'omap_hsmmc'
-Some drivers were not found
-MMC:   OMAP SD/MMC: 0, OMAP SD/MMC: 1
-Loading Environment from FAT... *** Warning - bad CRC, using default environment
-
-Failed (-5)
-Loading Environment from MMC... OK
 Net:   cpsw, usb_ether
 Press SPACE to abort autoboot in 2 seconds
 
