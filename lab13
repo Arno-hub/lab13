@@ -58,9 +58,6 @@ On réinitialise la carte en maintenant appuyé le bouton reset de la carte.
 On appui sur la barre espace du terminal picocom pour arrêter le compte à rebours du démarrage.
 On voit alors l'invite : QUERE-uboot
 
-(Bootloader == Bios sur les gros PC) 
-Boot Switch permet de changer l'endroit où l'on boot 
-
 Question 9 
 
 On peut maintenant utiliser U-Boot. 
